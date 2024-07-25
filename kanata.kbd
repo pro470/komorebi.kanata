@@ -1,0 +1,539 @@
+(defcfg
+
+
+  danger-enable-cmd yes
+  tray-icon 1symbols.png
+  icon-match-layer-name   	yes  	;;|yes| match layer name to icon files even without an explicit (icon name.ico) config
+  tooltip-layer-changes   	yes  	;;|false|
+  tooltip-show-blank      	yes  	;;|no|
+  tooltip-duration        	500  	;;|500|
+  tooltip-size            	24,24	;;|24 24|
+  notify-cfg-reload       	yes  	;;|yes|
+  notify-cfg-reload-silent	no   	;;|no|
+  notify-error            	yes  	;;|yes|
+
+)
+
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    retOOOO
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl  	
+)
+
+
+(deflayer qwerty
+  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt   rmet rctl
+)
+
+(deflayer qwertyesclctl
+  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  @esclctl a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt   rmet rctl
+)
+
+
+
+
+(deflayer komorebic
+  _    @cmstart    @cmstop    _    _    _    _    _    _    _    _    _    _    _
+  @tabgrl    @laye    _    _    _    @cmtf    @lrael    @lraed    @lraeu    @lraer    _    _    _    _
+  lrld    _    _    _    _    _    @cmfl    @cmfd    @cmfu    @cmfr    _    _    _
+  nop3    _    _    @cmc    _    _    @lclp    @lcln    @cmtm    @cmp    _     nop3
+  nop0    _    nop1              nop2              _    _    nop0
+)
+
+(deflayer tabkomorebic
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    @cmu    @cmsl    @cmsd    @cmsu    @cmsr    _    _    _    _
+  _    _    _    _    _    _    @cmml    @cmmd    @cmmu    @cmmr    _    _    _
+  nop3    _    _    _    _    @cmflw    @mh0    @mh1    @mh2    @mh3    @mh4    nop3
+  nop0    _    nop1              nop2              _    _    nop0
+)
+
+(deflayer capskomorebic
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+
+)
+
+(deflayer capsakomorebic
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+
+)
+
+
+(deflayer layers
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    @qy    @msl    @num    _    _    _
+  _    _    _    _    _    _    _    @qyesclctl    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+
+(deflayer numbers
+  @grl    _    _    _    _    _    nlk  kp7  kp8  kp9  _    _    _    _
+  _    _    _    _    _    XX   _    kp4  kp5  kp6  -    _    _    _
+  _    _    C-z  _    _    XX   _    kp1  kp2  kp3  +    _    _
+  _    C-z  C-x  C-c  C-v  XX   _    kp0  kp0  .    /    _
+  _    _    @atl              _              _    _    _
+)
+
+
+(deflayer mouse
+  @grl    @mwu @mwd @mwl @mwr _    _    _    _    _    @ma↑ _    _    _
+  _    pgup bck  _    fwd  _    _    _    _    @ma← @ma↓ @ma→ _    _
+  _    pgdn mlft _    mrgt mmid _    mbck mfwd _    @ms↑ _    _
+  @fms _    mltp _    mrtp mmtp _    mbtp mftp @ms← @ms↓ @ms→
+  _    _    _              _              _    _    _
+)
+
+(deflayer ms
+  @grl    mbck    mfwd    mbtp    mftp    _    _    _    _    _    _    _    _    _
+  _    C-x    C-c    C-v    C-y    C-S-y    @ma←    @ma↓    @ma↑    @ma→    _    _    _    _
+  _    _    mrtp    mmtp    mltp    _    @ms←    @ms↓    @ms↑    @ms→    _    @qy    _
+  @fms    _    mrgt    mmid    mlft    _    @mwl    @mwd    @mwu    @mwr    _    @fms
+  _    _    @atl               @clqy              _    _    _
+
+)
+
+
+
+(deflayer placeholder
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(defalias
+  qy (layer-switch qwerty)
+
+  qyesclctl (layer-switch qwertyesclctl)
+
+  num (layer-switch numbers)
+
+  msl (layer-switch ms)
+)
+(defalias
+  esclctl (tap-hold 200 200 esc lctl)
+)
+(defalias 
+  cmstart (cmd  komorebic start)
+  
+  cmstop (cmd  komorebic stop)
+
+   cmr (cmd  komorebic reload-configuration)
+
+   cmfl (cmd komorebic focus left)
+
+   cmfd (cmd  komorebic focus down)
+
+   cmfu (cmd  komorebic focus up)
+
+   cmfr (cmd  komorebic focus right)
+
+   cmcfp (cmd komorebic cycle-focus previous)
+
+   cmcfn (cmd komorebic cycle-focus next)
+
+   cmcwn (cmd komorebic cycle-workspace next)
+
+   cmcwp (cmd komorebic cycle-workspace previous)
+    
+   cmcmn (cmd komorebic cycle-monitor next)
+
+   cmcmp (cmd komorebic cycle-monitor previous)
+   
+   cmml (cmd komorebic move left)
+
+   cmmu (cmd komorebic move up)
+
+   cmmd (cmd komorebic move down)
+
+   cmmr (cmd komorebic move right)
+
+   cmp (cmd komorebic promote)
+
+   cmsl (cmd komorebic stack left)
+
+   cmsr (cmd komorebic stack right)
+
+   cmsu (cmd komorebic stack up)
+
+   cmsd (cmd komorebic stack down)
+
+   cmu (cmd komorebic unstack)
+
+   cmcsp (cmd komorebic cycle-stack previous)
+
+   cmcsn (cmd komorebic cycle-stack next)
+
+   cmclp (cmd komorebic cycle-layout previous)
+
+   cmcln  (cmd komorebic cycle-layout next)
+
+   cmnw (cmd komorebic new-workspace)
+
+   cmrahi (cmd komorebic resize-axis horizontal increase)
+
+   cmrahd (cmd komorebic resize-axis horizontal decrease)
+
+   cmravi (cmd komorebic resize-axis vertical increase)
+
+   cmravd (cmd komorebic resize-axis vertical decrease)
+
+   cmreli (cmd komorebic resize-edge left increase)
+   
+   cmreld (cmd komorebic resize-edge left decrease)
+   
+   cmreri (cmd komorebic resize-edge right increase)
+   
+   cmrerd (cmd komorebic resize-edge right decrease)
+
+   cmreui (cmd komorebic resize-edge up increase)
+   
+   cmreud (cmd komorebic resize-edge up decrease)
+   
+   cmredi (cmd komorebic resize-edge down increase)
+   
+   cmredd (cmd komorebic resize-edge down decrease)
+
+   cmtf (cmd komorebic toggle-float)
+
+   cmtm (cmd komorebic toggle-monocle)
+
+   cmtmx (cmd komorebic toggle-maximize)
+
+   cmc (cmd komorebic close)
+
+   cmmi (cmd komorebic minimize)
+
+   cmflw (cmd komorebic focus-last-workspace)
+
+   cmmwtm (cmd komorebic move-workspace-to-monitor 0)
+
+   cmmwtm1  (cmd komorebic move-workspace-to-monitor 1)
+
+   cmswwm (cmd komorebic swap-workspace-with-monitor 0)
+
+   cmswwm1 (cmd komorebic swap-workspace-with-monitor 1)
+
+   cmfm (cmd komorebic focus-monitor 0)
+   
+   cmfm1 (cmd komorebic focus-monitor 1)
+
+   cmfw (cmd komorebic focus-workspace 0)
+
+   cmfw1 (cmd komorebic focus-workspace 1)
+
+   cmfw2 (cmd komorebic focus-workspace 2)
+
+   cmfw3 (cmd komorebic focus-workspace 3)
+
+   cmfw4 (cmd komorebic focus-workspace 4)
+
+   cmfws1 (cmd komorebic focus-workspaces 0)
+   
+   cmfws2 (cmd komorebic focus-workspaces 1)
+   
+   cmfws3 (cmd komorebic focus-workspaces 2)
+   
+   cmfws4 (cmd komorebic focus-workspaces 3)
+   
+   cmfws5 (cmd komorebic focus-workspaces 4)
+
+   cmstw (cmd komorebic send-to-workspace 0)
+   
+   cmstw1 (cmd komorebic send-to-workspace 1)
+   
+   cmstw2 (cmd komorebic send-to-workspace 2)
+   
+   cmstw3 (cmd komorebic send-to-workspace 3)
+   
+   cmstw4 (cmd komorebic send-to-workspace 4)
+
+   cmmtw (cmd komorebic move-to-workspace 0)
+
+   cmmtw1 (cmd komorebic move-to-workspace 1)
+
+   cmmtw2 (cmd komorebic move-to-workspace 2)
+
+   cmmtw3 (cmd komorebic move-to-workspace 3)
+
+   cmmtw4 (cmd komorebic move-to-workspace 4)
+
+   cmfmw00 (cmd komorebic focus-monitor-workspace 0 0)
+
+   cmfmw01 (cmd komorebic focus-monitor-workspace 0 1)
+   
+   cmfmw02 (cmd komorebic focus-monitor-workspace 0 2)
+   
+   cmfmw03 (cmd komorebic focus-monitor-workspace 0 3)
+   
+   cmfmw04 (cmd komorebic focus-monitor-workspace 0 4)
+
+   cmfmw10 (cmd komorebic focus-monitor-workspace 1 0)
+
+   cmfmw11 (cmd komorebic focus-monitor-workspace 1 1)
+   
+   cmfmw12 (cmd komorebic focus-monitor-workspace 1 2)
+   
+   cmfmw13 (cmd komorebic focus-monitor-workspace 1 3)
+   
+   cmfmw14 (cmd komorebic focus-monitor-workspace 1 4)
+
+   cmstmw00 (cmd komorebic send-to-monitor-workspace 0 0)
+   
+   cmstmw01 (cmd komorebic send-to-monitor-workspace 0 1)
+   
+   cmstmw02 (cmd komorebic send-to-monitor-workspace 0 2)
+   
+   cmstmw03 (cmd komorebic send-to-monitor-workspace 0 3)
+   
+   cmstmw04 (cmd komorebic send-to-monitor-workspace 0 4)
+
+   cmstmw10 (cmd komorebic send-to-monitor-workspace 1 0)
+   
+   cmstmw11 (cmd komorebic send-to-monitor-workspace 1 1)
+   
+   cmstmw12 (cmd komorebic send-to-monitor-workspace 1 2)
+   
+   cmstmw13 (cmd komorebic send-to-monitor-workspace 1 3)
+   
+   cmstmw14 (cmd komorebic send-to-monitor-workspace 1 4)
+
+   cmmtmw00 (cmd komorebic move-to-monitor-workspace 0 0)
+
+   cmmtmw01 (cmd komorebic move-to-monitor-workspace 0 1)
+   
+   cmmtmw02 (cmd komorebic move-to-monitor-workspace 0 2)
+   
+   cmmtmw03 (cmd komorebic move-to-monitor-workspace 0 3)
+   
+   cmmtmw04 (cmd komorebic move-to-monitor-workspace 0 4)
+
+   cmmtmw10 (cmd komorebic move-to-monitor-workspace 1 0)
+   
+   cmmtmw11 (cmd komorebic move-to-monitor-workspace 1 1)
+   
+   cmmtmw12 (cmd komorebic move-to-monitor-workspace 1 2)
+   
+   cmmtmw13 (cmd komorebic move-to-monitor-workspace 1 3)
+   
+   cmmtmw14 (cmd komorebic move-to-monitor-workspace 1 4)
+
+
+
+
+
+
+)
+
+
+(defalias
+  kobi (layer-toggle komorebic)
+
+  lay (layer-toggle layers)
+
+  tabkobi (layer-toggle tabkomorebic)
+
+  qyheld (layer-toggle qwerty)
+
+  atl (multi alt @qy)
+
+  clqy (multi mltp @qy)
+
+  fwfm (tap-dance 200 (@cmfw @cmmtw @cmstw))
+
+  fwfm1 (tap-dance 200 (@cmfw1 @cmmtw1 @cmstw1))
+
+  fwfm2 (tap-dance 200 (@cmfw2 @cmmtw2 @cmstw2))
+
+  fwfm3 (tap-dance 200 (@cmfw3 @cmmtw3 @cmstw3))
+  
+  fwfm4 (tap-dance 200 (@cmfw4 @cmmtw4 @cmstw4))
+
+  fwfm00 (tap-dance 200 (@cmfmw00 @cmmtmw00 @cmstmw00))
+
+  fwfm01 (tap-dance 200 (@cmfmw01 @cmmtmw01 @cmstmw01))
+
+  fwfm02  (tap-dance 200 (@cmfmw02 @cmmtmw02 @cmstmw02))
+
+  fwfm03 (tap-dance 200 (@cmfmw03 @cmmtmw03 @cmstmw03))
+  
+  fwfm04 (tap-dance 200  (@cmfmw04 @cmmtmw04 @cmstmw04))
+
+  fwfm10 (tap-dance 200 (@cmfmw10 @cmmtmw10 @cmstmw10))
+  
+  fwfm11 (tap-dance 200  (@cmfmw11 @cmmtmw11 @cmstmw11))
+  
+  fwfm12 (tap-dance 200 (@cmfmw12 @cmmtmw12 @cmstmw12))
+
+  fwfm13 (tap-dance 200 (@cmfmw13 @cmmtmw13 @cmstmw13))
+  
+  fwfm14 (tap-dance 200 (@cmfmw14 @cmmtmw14 @cmstmw14))
+
+
+
+
+
+  grl (tap-hold 200 200 grv @kobi)
+
+  tabgrl (tap-hold 200 200 tab @tabkobi)
+
+  laye (tap-hold 200 200 _ @lay)
+
+
+)
+
+(defvirtualkeys 
+
+  hwflw (fork (cmd komorebic focus-last-workspace) XX (nop3))
+
+)
+
+
+(defalias
+  m0 (switch 
+    ((and (input real grv) nop0 )) @fwfm00 break
+    ((and (input real grv) nop3 )) @fwfm10 break
+    ((and (input real grv) nop1)) @cmfws1 break
+    () @fwfm break
+  )
+
+  m1 (switch 
+     ((and (input real grv) nop0 ))  @fwfm01 break
+     ((and (input real grv) nop3 ))  @fwfm11 break
+     ((and (input real grv) nop1))   @cmfws2 break
+     ()  @fwfm1 break
+   )
+
+  m2 (switch 
+      ((and (input real grv) nop0 ))   @fwfm02 break
+      ( (and (input real grv) nop3 ))   @fwfm12 break
+      ((and (input real grv) nop1))    @cmfws3 break
+      ()  @fwfm2 break
+    )	
+
+  m3 (switch 
+       ((and (input real grv) nop0 ))    @fwfm03 break
+       ((and (input real grv) nop3 ))   @fwfm13 break
+       ((and (input real grv) nop1))     @cmfws4 break
+       ()  @fwfm3 break
+     )
+
+  m4 (switch 
+       ( (and (input real grv) nop0 ))     @fwfm04 break
+       ((and (input real grv) nop3 ))    @fwfm14 break
+       ((and (input real grv) nop1))      @cmfws5 break
+       ()  @fwfm4 break
+     )
+
+  lclp (switch 
+      ( (and (input real grv) nop0)) @cmclp break
+      ((and (input real grv) nop1)) @cmcwp break
+      ((and (input real grv) nop2)) @cmcmp break
+      () @cmcsp break
+)   
+
+    lcln (switch 
+      ((and  (input real grv) nop0)) @cmcln break
+      ((and (input real grv) nop1)) @cmcwn break
+      ((and (input real grv) nop2)) @cmcmn break
+      () @cmcsn break
+     )
+
+
+  lraer                (switch 
+    ((and (input real grv) nop0)) @cmreri break
+    ((and (input real grv) nop2)) @cmreld break
+    () @cmravd break 
+  )
+
+  lraed (switch 
+    ((and (input real grv) nop0)) @cmredi break
+    ((and (input real grv) nop2)) @cmreud break
+    () @cmrahd break
+  
+  )
+
+  lraeu (switch 
+    ((and (input real grv) nop0))  @cmreui break
+    ((and (input real grv) nop2)) @cmredd break
+  () @cmravi break
+)
+
+
+  lrael (switch 
+
+    ((and (input real grv) nop0)) @cmreli break
+    ((and (input real grv) nop2)) @cmrerd break
+  ()  @cmrahi break
+  )
+)
+
+(defalias
+
+  hw0 (multi (cmd komorebic focus-workspace 0) (on-release tap-virtualkey hwflw)) 
+  hw1 (multi (cmd komorebic focus-workspace 1) (on-release tap-virtualkey hwflw))
+  hw2 (multi (cmd komorebic focus-workspace 2) (on-release tap-virtualkey hwflw))
+  hw3 (multi (cmd komorebic focus-workspace 3) (on-release tap-virtualkey hwflw))
+  hw4 (multi (cmd komorebic focus-workspace 4) (on-release tap-virtualkey hwflw))
+
+  mh0 (tap-hold 200 200 @m0 @hw0)
+  mh1 (tap-hold 200 200 @m1 @hw1)
+  mh2 (tap-hold 200 200 @m2 @hw2)
+  mh3 (tap-hold 200 200 @m3 @hw3)
+  mh4 (tap-hold 200 200 @m4 @hw4)
+
+
+
+
+
+
+
+) 
+
+
+(defalias
+  mwu (mwheel-up 50 120)
+  mwd (mwheel-down 50 120)
+
+  mwl (mwheel-left 50 120)
+  mwr (mwheel-right 50 120)
+
+
+  ms↑ (movemouse-up 1 1)
+  ms← (movemouse-left 1 1)
+  ms↓ (movemouse-down 1 1)
+  ms→ (movemouse-right 1 1)
+
+
+  ma↑ (movemouse-accel-up 1 1000 1 5)
+  ma← (movemouse-accel-left 1 1000 1 5)
+  ma↓ (movemouse-accel-down 1 1000 1 5)
+  ma→ (movemouse-accel-right 1 1000 1 5)
+
+  sm (setmouse 32228 32228)
+
+  fms (movemouse-speed 200)
+)
+
