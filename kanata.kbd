@@ -11,43 +11,39 @@
   notify-cfg-reload       	yes  	;;|yes|
   notify-cfg-reload-silent	no   	;;|no|
   notify-error            	yes  	;;|yes|
+  concurrent-tap-hold yes
 
 )
-
 
 (defsrc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   caps a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet rctl  	
-)
-
+  lsft 102d z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl 
+  )
 
 (deflayer qwerty
-  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  @grl  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   caps a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt   rmet rctl
-)
+  lsft @102dl z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl 
+  )
 
 (deflayer qwertyesclctl
-  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  @grl  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   @esclctl a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt   rmet rctl
-)
-
-
-
+  lsft @102dl z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl 
+  )
 
 (deflayer komorebic
   _    @cmstart    @cmstop    _    _    _    _    _    _    _    _    _    _    _
   @tabgrl    @laye    _    _    _    @cmtf    @lrael    @lraed    @lraeu    @lraer    _    _    _    _
   lrld    _    _    _    _    _    @cmfl    @cmfd    @cmfu    @cmfr    _    _    _
-  nop3    _    _    @cmc    _    _    @lclp    @lcln    @cmtm    @cmp    _     nop3
+  nop3  _    _    _    @cmc    _    _    @lclp    @lcln    @cmtm    @cmp    _     nop3
   nop0    _    nop1              nop2              _    _    nop0
 )
 
@@ -55,24 +51,24 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    @cmu    @cmsl    @cmsd    @cmsu    @cmsr    _    _    _    _
   _    _    _    _    _    _    @cmml    @cmmd    @cmmu    @cmmr    _    _    _
-  nop3    _    _    _    _    @cmflw    @mh0    @mh1    @mh2    @mh3    @mh4    nop3
+  nop3  _    _    _    _    _    @cmflw    @mh0    @mh1    @mh2    @mh3    @mh4    nop3
   nop0    _    nop1              nop2              _    _    nop0
 )
 
-(deflayer capskomorebic
+(deflayer 102dkomorebic
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
+  _    lrld   nop6    nop7    nop8    @kmtf    @kmcp    @kmcn    @kmtm    @kmp    _    _    _    _
+  _    _    nop4    nop5    nop0    nop9    @kmfl    @kmfd    @kmfu    @kmfr    _    _    _
+  _    _    @y102dl    nop1    nop2    nop3    _    @kmh0    @kmh1    @kmh2     @kmh3   @kmh4    _
   _    _    _              _              _    _    _
 
 )
 
-(deflayer capsakomorebic
+(deflayer 102dtabkomorebic
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _              _    _    _
 
 )
@@ -82,7 +78,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    @qy    @msl    @num    _    _    _
-  _    _    _    _    _    _    _    @qyesclctl    _    _    _    _
+  _    _    _    _    _    _    _    _    @qyesclctl    _    _    _    _
   _    _    _              _              _    _    _
 )
 
@@ -91,7 +87,7 @@
   @grl    _    _    _    _    _    nlk  kp7  kp8  kp9  _    _    _    _
   _    _    _    _    _    XX   _    kp4  kp5  kp6  -    _    _    _
   _    _    C-z  _    _    XX   _    kp1  kp2  kp3  +    _    _
-  _    C-z  C-x  C-c  C-v  XX   _    kp0  kp0  .    /    _
+  _    _    C-z  C-x  C-c  C-v  XX   _    kp0  kp0  .    /    _
   _    _    @atl              _              _    _    _
 )
 
@@ -100,7 +96,7 @@
   @grl    @mwu @mwd @mwl @mwr _    _    _    _    _    @ma↑ _    _    _
   _    pgup bck  _    fwd  _    _    _    _    @ma← @ma↓ @ma→ _    _
   _    pgdn mlft _    mrgt mmid _    mbck mfwd _    @ms↑ _    _
-  @fms _    mltp _    mrtp mmtp _    mbtp mftp @ms← @ms↓ @ms→
+  @fms    _ _    mltp _    mrtp mmtp _    mbtp mftp @ms← @ms↓ @ms→
   _    _    _              _              _    _    _
 )
 
@@ -108,7 +104,7 @@
   @grl    mbck    mfwd    mbtp    mftp    _    _    _    _    _    _    _    _    _
   _    C-x    C-c    C-v    C-y    C-S-y    @ma←    @ma↓    @ma↑    @ma→    _    _    _    _
   _    _    mrtp    mmtp    mltp    _    @ms←    @ms↓    @ms↑    @ms→    _    @qy    _
-  @fms    _    mrgt    mmid    mlft    _    @mwl    @mwd    @mwu    @mwr    _    @fms
+  @fms    _    _    mrgt    mmid    mlft    _    @mwl    @mwd    @mwu    @mwr    _    @fms
   _    _    @atl               @clqy              _    _    _
 
 )
@@ -119,8 +115,23 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _              _    _    _
+)
+
+(defchordsv2-experimental
+
+  (caps 102d)  F15  200 all-released  ()
+)
+
+(defalias
+
+  vindmm (cmd win-vind -c "<easyclick><click_mid>")
+
+  vindlm (cmd win-vind -c "<easyclick><click_left>")
+
+  vindrm (cmd win-vind -c "<easyclick><click_right>")
+
 )
 
 (defalias
@@ -350,10 +361,14 @@
 
 (defalias
   kobi (layer-toggle komorebic)
+  
+  102dkobi (layer-toggle 102dkomorebic)
 
   lay (layer-toggle layers)
 
   tabkobi (layer-toggle tabkomorebic)
+  
+  102dlykobi (layer-toggle 102dtabkomorebic)
 
   qyheld (layer-toggle qwerty)
 
@@ -395,9 +410,13 @@
 
 
 
-  grl (tap-hold 200 200 grv @kobi)
+  grl (tap-hold 200 200 _ @kobi)
 
   tabgrl (tap-hold 200 200 tab @tabkobi)
+  
+  102dl (tap-hold 200 200 _ @102dkobi)
+  
+  y102dl (tap-hold 200 200 _ @102dlykobi)
 
   laye (tap-hold 200 200 _ @lay)
 
@@ -504,14 +523,78 @@
   mh3 (tap-hold 200 200 @m3 @hw3)
   mh4 (tap-hold 200 200 @m4 @hw4)
 
-
-
-
-
-
-
 ) 
 
+(defalias 
+    kmfl (switch
+      ((and (input real 102d) (not (or nop4 nop5)))) @cmfl break
+    )
+
+    kmfd (switch
+      ((and (input real 102d) (not (or nop4 nop5)))) @cmfd break 
+    
+    )
+
+    kmfu (switch
+      ((and (input real 102d) (not (or nop4 nop5)))) @cmfu break 
+    
+    )
+
+    kmfr (switch
+      ((and (input real 102d) (not (or nop4 nop5)))) @cmfr break
+    
+    )
+
+    km0 (switch
+      ((and (input real 102d) (not (or nop4 nop5)))) @cmfw break
+    )
+
+    km1 (switch
+      ((and (input real 102d) (not (or nop4 nop5)))) @cmfw1 break
+    )
+
+    km2 (switch
+      ((and (input real 102d) (not (or nop4 nop4)))) @cmfw2 break
+    )
+
+    km3 (switch
+      ((and (input real 102d) (not (or nop4 nop5)))) @cmfw3 break
+    )
+
+    km4 (switch
+      ((and (input real 102d) (not (or nop4 nop5)))) @cmfw4 break
+    )
+    
+    kmcp (switch
+      ((and (input real 102d) nop2)) @cmcsp break
+    )
+
+    kmcn (switch
+      ((and (input real 102d) nop2)) @cmcsn break
+    )
+
+    kmtm (switch
+      ((and (input real 102d))) @cmtm break
+    )
+
+    kmp (switch
+      ( (input real 102d) ) @cmp break
+    )
+    
+    kmtf (switch
+      ((and (input real 102d) nop2)) @cmu break
+      ((and (input real 102d) (not nop2))) @cmtf break
+    )
+
+ )
+
+ (defalias
+  kmh0 (tap-hold 200 200 @km0 @hw0)
+  kmh1 (tap-hold 200 200 @km1 @hw1)
+  kmh2 (tap-hold 200 200 @km2 @hw2)
+  kmh3 (tap-hold 200 200 @km3 @hw3)
+  kmh4 (tap-hold 200 200 @km4 @hw4)
+ )
 
 (defalias
   mwu (mwheel-up 50 120)
