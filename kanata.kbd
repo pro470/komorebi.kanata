@@ -34,7 +34,7 @@
 (deflayer qwertyesclctl
   @grl  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  @esclctl a    s    d    f    g    h    j    k    l    ;    '    ret
+  @esclctl @a    @s    @d    @f    g    h    @j    @k    @l    @;    '    ret
   lsft @102dl @102dl    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl 
   )
@@ -59,7 +59,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    lrld   nop6    nop7    nop8    @kmtf    @kmcp    @kmcn    @kmtm    @kmp    _    _    _    _
   _    _    nop4    nop5    nop0    nop9    @kmfl    @kmfd    @kmfu    @kmfr    _    _    _
-  _    _    @y102dl    nop1    nop2    nop3    _    @kmh0    @kmh1    @kmh2     @kmh3   @kmh4    _
+  _    _    _    nop1    nop2    nop3    _    @kmh0    @kmh1    @kmh2     @kmh3   @kmh4    _
   _    _    _              _              _    _    _
 
 )
@@ -144,7 +144,15 @@
   msl (layer-switch ms)
 )
 (defalias
-  esclctl (tap-hold 200 200 esc lctl)
+  esclctl (tap-hold 200 200 esc lctl)  
+  a (tap-hold 200 200 a lmet)
+  s (tap-hold 200 200 s lalt)
+  d (tap-hold 200 200 d lsft)
+  f (tap-hold 200 200 f lctl)
+  j (tap-hold 200 200 j rctl)
+  k (tap-hold 200 200 k rsft)
+  l (tap-hold 200 200 l ralt)
+  ; (tap-hold 200 200 ; rmet)
 )
 (defalias 
   cmstart (cmd  komorebic start)
