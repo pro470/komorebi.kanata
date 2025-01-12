@@ -398,6 +398,7 @@
   (t! komotaphold (move up) mu )
 )
 
+
 (defalias
     (t! komotapholda fl )
     (t! komotapholda fr )
@@ -409,6 +410,51 @@
     (t! komotapholda mu )
 )
 
+(defvirtualkeys 
+  (t! komotaphold (cycle-layout previous) clp) 
+  (t! komotaphold (cycle-layout next) cln) 
+  (t! komotaphold (cycle-workspace previous) cwp)
+  (t! komotaphold (cycle-workspace next) cwn)
+  (t! komotaphold (cycle-monitor previous) cmp)
+  (t! komotaphold (cycle-monitor next) cmn)
+  (t! komotaphold (cycle-stack previous) csp)
+  (t! komotaphold (cycle-stack next) csn)
+  (t! komotaphold (resize-edge right increase) reri)
+  (t! komotaphold (resize-edge right decrease) rerd)
+  (t! komotaphold (resize-edge left decrease) reld)
+  (t! komotaphold (resize-edge left increase) reli)
+  (t! komotaphold (resize-edge up decrease) reud)
+  (t! komotaphold (resize-edge up increase) reui)
+  (t! komotaphold (resize-edge down decrease) redd)
+  (t! komotaphold (resize-edge down increase) redi)
+  (t! komotaphold (resize-axis vertical decrease) ravd)
+  (t! komotaphold (resize-axis vertical increase) ravi)
+  (t! komotaphold (resize-axis horizontal decrease) rahd)
+  (t! komotaphold (resize-axis horizontal increase) rahi)
+)
+
+(defalias 
+ (t! komotapholda clp) 
+ (t! komotapholda cln) 
+ (t! komotapholda cwp) 
+ (t! komotapholda cwn) 
+ (t! komotapholda cmp) 
+ (t! komotapholda cmn) 
+ (t! komotapholda csp) 
+ (t! komotapholda csn) 
+ (t! komotapholda reri) 
+ (t! komotapholda rerd) 
+ (t! komotapholda reld) 
+ (t! komotapholda reli) 
+ (t! komotapholda reud) 
+ (t! komotapholda reui) 
+ (t! komotapholda redd) 
+ (t! komotapholda redi) 
+ (t! komotapholda ravd) 
+ (t! komotapholda ravi) 
+ (t! komotapholda rahd) 
+ (t! komotapholda rahi) 
+)
 
 (defalias
   kobi (layer-toggle komorebic)
@@ -518,45 +564,45 @@
      )
 
   lclp (switch 
-      ( (and (input real grv) nop0)) @cmclp break
-      ((and (input real grv) nop1)) @cmcwp break
-      ((and (input real grv) nop2)) @cmcmp break
-      () @cmcsp break
+      ( (and (input real grv) nop0)) @avkmrcmclp break
+      ((and (input real grv) nop1)) @avkmrcmcwp break
+      ((and (input real grv) nop2)) @avkmrcmcmp break
+      () @avkmrcmcsp break
 )   
 
     lcln (switch 
-      ((and  (input real grv) nop0)) @cmcln break
-      ((and (input real grv) nop1)) @cmcwn break
-      ((and (input real grv) nop2)) @cmcmn break
-      () @cmcsn break
+      ((and  (input real grv) nop0)) @avkmrcmcln break
+      ((and (input real grv) nop1)) @avkmrcmcwn break
+      ((and (input real grv) nop2)) @avkmrcmcmn break
+      () @avkmrcmcsn break
      )
 
 
   lraer                (switch 
-    ((and (input real grv) nop0)) @cmreri break
-    ((and (input real grv) nop2)) @cmreld break
-    () @cmravd break 
+    ((and (input real grv) nop0)) @avkmrcmreri break
+    ((and (input real grv) nop2)) @avkmrcmreld break
+    () @avkmrcmravd break 
   )
 
   lraed (switch 
-    ((and (input real grv) nop0)) @cmredi break
-    ((and (input real grv) nop2)) @cmreud break
-    () @cmrahd break
+    ((and (input real grv) nop0)) @avkmrcmredi break
+    ((and (input real grv) nop2)) @avkmrcmreud break
+    () @avkmrcmrahd break
   
   )
 
   lraeu (switch 
-    ((and (input real grv) nop0))  @cmreui break
-    ((and (input real grv) nop2)) @cmredd break
-  () @cmravi break
+    ((and (input real grv) nop0))  @avkmrcmreui break
+    ((and (input real grv) nop2)) @avkmrcmredd break
+  () @avkmrcmravi break
 )
 
 
   lrael (switch 
 
-    ((and (input real grv) nop0)) @cmreli break
-    ((and (input real grv) nop2)) @cmrerd break
-  ()  @cmrahi break
+    ((and (input real grv) nop0)) @avkmrcmreli break
+    ((and (input real grv) nop2)) @avkmrcmrerd break
+  ()  @avkmrcmrahi break
   )
 )
 
