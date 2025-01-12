@@ -42,7 +42,7 @@
 (deflayer komorebic
   _    @cmstart    @cmstop    _    _    _    _    _    _    _    _    _    _    _
   @tabgrl    @laye    _    _    _    @cmtf    @lrael    @lraed    @lraeu    @lraer    _    _    _    _
-  lrld    _    _    _    _    _    @cmfl    @cmfd    @cmfu    @cmfr    _    _    _
+  lrld    _    _    _    _    _    @avkmrcmfl     @avkmrcmfd    @avkmrcmfu    @avkmrcmfr    _    _    _
   nop3  _    _    _    @cmc    _    _    @lclp    @lcln    @cmtm    @cmp    _     nop3
   nop0    _    nop1              nop2              _    _    nop0
 )
@@ -50,7 +50,7 @@
 (deflayer tabkomorebic
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    @cmu    @cmsl    @cmsd    @cmsu    @cmsr    _    _    _    _
-  _    _    _    _    _    _    @cmml    @cmmd    @cmmu    @cmmr    _    _    _
+  _    _    _    _    _    _    @avkmrcmml    @avkmrcmmd    @avkmrcmmu    @avkmrcmmr        _    _    _
   nop3  _    _    _    _    _    @cmflw    @mh0    @mh1    @mh2    @mh3    @mh4    nop3
   nop0    _    nop1              nop2              _    _    nop0
 )
@@ -154,6 +154,8 @@
   l (tap-hold 200 200 l ralt)
   ; (tap-hold 200 200 ; rmet)
 )
+
+
 (defalias 
   cmstart (cmd  komorebic start)
   
@@ -364,6 +366,47 @@
 
 
 
+)
+
+
+(deftemplate komotaphold (komorebicommand letter )
+ (concat "vkcm" $letter) (cmd komorebic $komorebicommand)
+ (concat "mrcm" $letter) (macro-repeat-release-cancel 200 (cmd komorebic $komorebicommand))
+ 
+  (concat "vkmrcm" $letter) (multi 
+              (on-press tap-vkey (concat "vkcm" $letter))
+              (on-release release-vkey (concat "mrcm" $letter))
+              (on-press press-vkey (concat "mrcm" $letter))
+          )
+)
+
+(deftemplate komotapholda (letter)
+  (concat "avkmrcm" $letter) (multi 
+                              (on-press press-vkey (concat "vkmrcm" $letter))
+                              (on-release release-vkey (concat "vkmrcm" $letter))
+  )
+)
+
+(defvirtualkeys
+  (t! komotaphold (focus left) fl )
+  (t! komotaphold (focus right) fr )
+  (t! komotaphold (focus down) fd )
+  (t! komotaphold (focus up) fu )
+  (t! komotaphold (move left) ml )
+  (t! komotaphold (move right) mr )
+  (t! komotaphold (move down) md )
+  (t! komotaphold (move up) mu )
+)
+
+(defalias
+    (t! komotapholda fl )
+    (t! komotapholda fr )
+    (t! komotapholda fd )
+    (t! komotapholda fu )
+    (t! komotapholda ml )
+    (t! komotapholda mr )
+    (t! komotapholda md )
+    (t! komotapholda mu )
 )
 
 
